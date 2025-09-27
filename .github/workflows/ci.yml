@@ -54,7 +54,7 @@ jobs:
               -g ${{ env.AZURE_RESOURCE_GROUP }} \
               -n ${{ env.AZURE_WEBAPP_NAME }} \
               --plan ${{ env.AZURE_APP_SERVICE_PLAN }} \
-              --runtime "NODE|18-lts"
+              --runtime "NODE:20-lts"
           fi
 
       - name: Login to Docker Hub
@@ -95,4 +95,3 @@ jobs:
             --container-registry-url "https://index.docker.io"
 
           az webapp restart -g "${{ env.AZURE_RESOURCE_GROUP }}" -n "${{ env.AZURE_WEBAPP_NAME }}"
-
